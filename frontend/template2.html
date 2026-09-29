@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume · ResumeCraft</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-light: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: #f3f4f6;
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 48px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+        }
+
+        /* Header Section */
+        .resume-header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+
+        .resume-header h1 {
+            font-size: 28px;
+            color: var(--text-main);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .resume-header h2 {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        .resume-section {
+            margin-bottom: 24px;
+        }
+
+        .resume-section h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+        }
+
+        p, li {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Experience & Education Items */
+        .item-block {
+            margin-bottom: 16px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 15px;
+        }
+
+        .item-subtitle {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 14px;
+        }
+
+        .item-date {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Skills Tags */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-badge {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        /* Print Optimization */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .standalone-topbar {
+                display: none !important;
+            }
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+
+        .standalone-topbar {
+            background: #181820;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #2e2e38;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin: -40px -20px 30px -20px;
+        }
+
+        .standalone-topbar a, .standalone-topbar button {
+            color: #f3f4f6;
+            text-decoration: none;
+            background: #282834;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #3e3e4e;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .standalone-topbar a:hover, .standalone-topbar button:hover {
+            background: #6366f1;
+            border-color: #6366f1;
+        }
+
+        .standalone-topbar .btn-print {
+            background: #6366f1;
+            border-color: #6366f1;
+        }
+
+        .standalone-topbar .btn-print:hover {
+            background: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="standalone-topbar">
+        <div style="display: flex; gap: 10px;">
+            <a href="dashboard.html">← Dashboard</a>
+            <a href="my-resume.html">My Resume Preview</a>
+            <a href="templates.html">Change Template</a>
+        </div>
+        <div>
+            <button class="btn-print" onclick="window.print()">🖨️ Download / Print PDF</button>
+        </div>
+    </div>
+
+    <div class="resume-container">
+        <!-- Header / Personal Info -->
+        <header class="resume-header">
+            <h1 id="cv-name">John Doe</h1>
+            <h2 id="cv-job-title">Software Developer</h2>
+            <div class="contact-info">
+                <span id="cv-phone">📱 +1 (555) 019-2834</span>
+                <span id="cv-location">📍 San Francisco, CA</span>
+                <span>🔗 <a id="cv-linkedin" href="#" target="_blank">LinkedIn</a></span>
+                <span>💻 <a id="cv-github" href="#" target="_blank">GitHub</a></span>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="resume-section">
+            <h3>Professional Summary</h3>
+            <p id="cv-summary">
+                Dedicated and results-driven software engineer with expertise in building full-stack web applications using Java Spring Boot, MySQL, and modern JavaScript. Proven track record of optimizing performance and delivering clean, maintainable code.
+            </p>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="resume-section">
+            <h3>Work Experience</h3>
+            <div class="item-block">
+                <div class="item-header">
+                    <span class="item-title" id="cv-exp-title">Software Engineer</span>
+                    <span class="item-date" id="cv-exp-dates">Jan 2024 – Present</span>
+                </div>
+                <div class="item-subtitle" id="cv-company">Google</div>
+                <p id="cv-exp-desc" style="margin-top: 4px;">
+                    Developed core backend microservices, managed database architectures, and improved system reliability.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="resume-section">
+            <h3>Education</h3>
+            <div class="item-block">
+                <div class="item-header">
+                    <span class="item-title" id="cv-degree">B.Tech in Computer Science</span>
+                    <span class="item-date" id="cv-edu-dates">2020 – 2024</span>
+                </div>
+                <div class="item-subtitle" id="cv-institution">University of Mumbai</div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="resume-section">
+            <h3>Projects</h3>
+            <div class="item-block">
+                <div class="item-header">
+                    <span class="item-title" id="cv-project-name">ResumeCraft - Full Stack Resume Builder</span>
+                    <span class="item-date" id="cv-project-tech">Spring Boot, MySQL, JavaScript</span>
+                </div>
+                <p id="cv-project-desc" style="margin-top: 4px;">
+                    Built an end-to-end web application allowing users to dynamically build resumes, track profile completeness, and persist data to a MySQL database via REST APIs.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="resume-section">
+            <h3>Technical Skills</h3>
+            <div class="skills-list" id="cv-skills-list">
+                <span class="skill-badge">Java</span>
+                <span class="skill-badge">Spring Boot</span>
+                <span class="skill-badge">JavaScript</span>
+                <span class="skill-badge">MySQL</span>
+                <span class="skill-badge">Git</span>
+                <span class="skill-badge">REST APIs</span>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/data.js"></script>
+</body>
+</html>

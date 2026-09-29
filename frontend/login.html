@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="assets/gemini-svg.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Resume Builder</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0d1117; color: #c9d1d9; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .auth-card { background-color: #161b22; padding: 40px; border-radius: 12px; width: 100%; max-width: 400px; border: 1px solid #30363d; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+        h2 { color: #ffffff; margin-bottom: 24px; font-size: 24px; text-align: center; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 14px; color: #8b949e; }
+        input { width: 100%; padding: 12px; background-color: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #ffffff; font-size: 14px; outline: none; transition: border 0.3s; }
+        input:focus { border-color: #8b5cf6; }
+        button { width: 100%; padding: 12px; background-color: #8b5cf6; border: none; border-radius: 6px; color: #ffffff; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.3s; margin-top: 10px; }
+        button:hover { hover { background-color: #7c3aed; } }
+        .footer-text { text-align: center; margin-top: 20px; font-size: 14px; color: #8b949e; }
+        .footer-text a { color: #8b5cf6; text-decoration: none; }
+        .footer-text a:hover { text-decoration: underline; }
+        .error-msg { color: #f87171; font-size: 13px; margin-bottom: 15px; text-align: center; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="auth-card">
+        <h2>Welcome Back</h2>
+        <div id="errorMsg" class="error-msg"></div>
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" required placeholder="name@example.com">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer-text">
+            Don't have an account? <a href="register.html">Register</a>
+        </div>
+    </div>
+
+    <script>
+        // document.getElementById('loginForm').addEventListener('submit', async function(e) {
+        //     e.preventDefault();
+        //     const email = document.getElementById('email').value;
+        //     const password = document.getElementById('password').value;
+        //     const errorMsg = document.getElementById('errorMsg');
+
+        //     try {
+        //         const response = await fetch('http://localhost:8080/api/auth/login', {
+        //             method: 'POST',
+        //             headers: { 'Content-Type': 'application/json' },
+        //             body: JSON.stringify({ email: email, passwordHash: password })
+        //         });
+
+        //         if (response.ok) {
+        //             const user = await response.json();
+        //             localStorage.setItem('user', JSON.stringify(user));
+        //             window.location.href = 'dashboard.html'; // Redirect to dashboard
+        //         } else {
+        //             const errText = await response.text();
+        //             errorMsg.style.display = 'block';
+        //             errorMsg.textContent = errText || 'Invalid email or password';
+        //         }
+        //     } catch (err) {
+        //         errorMsg.style.display = 'block';
+        //         errorMsg.textContent = 'Server error. Make sure backend is running.';
+        //     }
+        // });
+
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorMsg = document.getElementById('errorMsg');
+
+    try {
+        const response = await fetch('http://localhost:8080/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            // Note: If your User model field is named 'password', send 'password: password'. 
+            // If it's expected as 'passwordHash', keep it as is.
+            body: JSON.stringify({ email: email, password: password })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            
+            // Save the user details object from the response map
+            localStorage.setItem('user', JSON.stringify(data.user));
+            
+            // Dynamically redirect based on whether they are a new or existing user
+            window.location.href = data.redirectUrl; 
+        } else {
+            const errText = await response.text();
+            errorMsg.style.display = 'block';
+            errorMsg.textContent = errText || 'Invalid email or password';
+        }
+    } catch (err) {
+        errorMsg.style.display = 'block';
+        errorMsg.textContent = 'Server error. Make sure backend is running.';
+    }
+});
+    </script>
+</body>
+</html>

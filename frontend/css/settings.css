@@ -1,0 +1,139 @@
+/* =========================================================
+   Settings page
+   ========================================================= */
+
+.settings-page {
+  padding: 24px 32px;
+  min-height: 100%;
+}
+
+.settings-topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.settings-topbar h1 {
+  font-size: 20px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.settings-card {
+  max-width: 560px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+.settings-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 16px;
+  margin-top: 24px;
+  letter-spacing: -0.01em;
+}
+
+.settings-section-title:first-child {
+  margin-top: 0;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.toggle-row strong {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.toggle-row p {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  margin: 2px 0 0 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--color-border-strong);
+  border-radius: 999px;
+  transition: 0.15s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: 0.15s;
+}
+
+.switch input:checked + .slider {
+  background: var(--color-purple);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+.switch input:focus-visible + .slider {
+  outline: 2px solid var(--color-purple-light);
+  outline-offset: 2px;
+}
+
+.danger-zone {
+  border-color: #7f1d1d;
+}
+
+.danger-zone p {
+  font-size: 13px;
+  color: var(--color-text-faint);
+  margin-bottom: 16px;
+}
+
+.clear-message {
+  color: var(--color-success);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .settings-page {
+    padding: 20px 16px;
+  }
+
+  .settings-card {
+    padding: 20px;
+  }
+}

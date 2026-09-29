@@ -1,0 +1,125 @@
+/* =========================================================
+   Templates page
+   ========================================================= */
+
+.templates-page {
+  padding: 24px 32px;
+  min-height: 100%;
+}
+
+.templates-topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.templates-topbar h1 {
+  font-size: 20px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.template-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.template-card:hover {
+  border-color: var(--color-purple-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.template-card.selected {
+  border-color: var(--color-purple);
+  box-shadow: 0 0 0 1px var(--color-purple), var(--shadow-glow);
+}
+
+.template-thumbnail {
+  min-height: 140px;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-purple-light);
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+  padding: 12px;
+}
+
+.template-info {
+  margin-bottom: 12px;
+}
+
+.template-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.template-name-row strong {
+  color: var(--color-text);
+}
+
+.check-icon {
+  color: var(--color-purple-light);
+  flex-shrink: 0;
+  display: none;
+}
+
+.template-card.selected .check-icon {
+  display: inline-flex;
+}
+
+.template-category {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-text-faint);
+}
+
+.btn-select {
+  width: 100%;
+  background: var(--color-purple-soft);
+  color: var(--color-purple-light);
+  border: none;
+  padding: 9px 0;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-select:hover {
+  transform: translateY(-1px);
+}
+
+.btn-select.selected {
+  background: var(--color-purple);
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .templates-page {
+    padding: 20px 16px;
+  }
+}

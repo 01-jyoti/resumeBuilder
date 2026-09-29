@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/gemini-svg.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Templates · ResumeCraft</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/templates.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-mark">RC</span>
+          <span class="sidebar-brand-name">ResumeCraft</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="sidebar-link">
+            <span data-icon="dashboard" data-size="18"></span>
+            <span class="sidebar-link-label">Dashboard</span>
+          </a>
+          <a href="my-resume.html" class="sidebar-link">
+            <span data-icon="fileText" data-size="18"></span>
+            <span class="sidebar-link-label">My Resume</span>
+          </a>
+          <a href="templates.html" class="sidebar-link active">
+            <span data-icon="template" data-size="18"></span>
+            <span class="sidebar-link-label">Templates</span>
+          </a>
+          <a href="enterInfo.html" class="sidebar-link">
+            <span data-icon="edit" data-size="18"></span>
+            <span class="sidebar-link-label">Edit Information</span>
+          </a>
+          <a href="settings.html" class="sidebar-link">
+            <span data-icon="settings" data-size="18"></span>
+            <span class="sidebar-link-label">Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-avatar">Y</div>
+          <div class="sidebar-user">
+            <span class="sidebar-user-name">Your Name</span>
+            <span class="sidebar-user-role">Student</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-content">
+        <div class="templates-page">
+          <div class="templates-topbar">
+            <a href="dashboard.html" class="back-link">
+              <span data-icon="arrowLeft" data-size="18"></span>
+              Back to Dashboard
+            </a>
+            <h1>Choose a Template</h1>
+          </div>
+
+          <div class="templates-grid" id="templates-grid"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/templates.js"></script>
+  </body>
+</html>

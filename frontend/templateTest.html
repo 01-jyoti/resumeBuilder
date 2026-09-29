@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">Resume</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #eee;
+            font-family: Arial, sans-serif;
+            color: #222;
+        }
+
+        .resume {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 30px auto;
+            padding: 35px 45px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            border-bottom: 2px solid #222;
+            padding-bottom: 18px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .job-title {
+            font-size: 18px;
+            margin-top: 6px;
+            color: #555;
+        }
+
+        .contact {
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .contact a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .section {
+            margin-top: 22px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #bbb;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .summary {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .item {
+            margin-bottom: 15px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .item-subtitle {
+            font-size: 13px;
+            color: #555;
+            margin-top: 3px;
+        }
+
+        .date {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .description {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 6px;
+        }
+
+        .skills {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .skill {
+            display: inline-block;
+            margin-right: 12px;
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .project-links {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .project-links a {
+            color: #222;
+            margin-right: 12px;
+            text-decoration: underline;
+        }
+
+        .standalone-topbar {
+            background: #181820;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #2e2e38;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .standalone-topbar a, .standalone-topbar button {
+            color: #f3f4f6;
+            text-decoration: none;
+            background: #282834;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #3e3e4e;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .standalone-topbar a:hover, .standalone-topbar button:hover {
+            background: #6366f1;
+            border-color: #6366f1;
+        }
+
+        .standalone-topbar .btn-print {
+            background: #7c3aed;
+            border-color: #7c3aed;
+        }
+
+        .standalone-topbar .btn-print:hover {
+            background: #6d28d9;
+        }
+
+        #loading-message {
+            text-align: center;
+            padding: 12px;
+            background: #ede9fe;
+            color: #5b21b6;
+            font-size: 13px;
+            font-weight: 500;
+            display: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .standalone-topbar {
+                display: none !important;
+            }
+            #loading-message {
+                display: none !important;
+            }
+            .resume {
+                margin: 0;
+                width: 100%;
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="standalone-topbar">
+    <div style="display: flex; gap: 10px;">
+        <a href="dashboard.html">← Dashboard</a>
+        <a href="my-resume.html">My Resume Preview</a>
+        <a href="templates.html">Change Template</a>
+    </div>
+    <div>
+        <button class="btn-print" onclick="window.print()">🖨️ Download / Print PDF</button>
+    </div>
+</div>
+
+<div id="loading-message">Fetching latest resume data from database...</div>
+
+<div class="resume" id="resume-content">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <h1 class="name" id="fullName">John Doe</h1>
+        <div class="job-title" id="jobTitle">Software Developer</div>
+        <div class="contact">
+            <span id="phone">+91 9876543210</span> | 
+            <span id="email">john@email.com</span>
+            <br>
+            <span id="location">Mumbai, Maharashtra, India</span>
+            <br>
+            <a id="linkedin" href="#" target="_blank">LinkedIn</a> | 
+            <a id="github" href="#" target="_blank">GitHub</a> | 
+            <a id="portfolio" href="#" target="_blank">Portfolio</a>
+        </div>
+    </header>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="section">
+        <div class="section-title">Professional Summary</div>
+        <div class="summary" id="summary">
+            Full-stack developer with experience building modern web applications using Java, Spring Boot and JavaScript.
+        </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section class="section">
+        <div class="section-title">Education</div>
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <div class="item-title" id="eduDegree">B.Tech in Computer Engineering</div>
+                    <div class="item-subtitle" id="eduInstitution">XYZ Engineering College</div>
+                </div>
+                <div class="date">
+                    <span id="eduStart">2024</span> - <span id="eduEnd">2028</span>
+                </div>
+            </div>
+            <div class="description">
+                Grade/GPA: <span id="eduGrade">8.5 CGPA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills" id="skillsContainer">
+            <!-- Injected via JavaScript -->
+        </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section">
+        <div class="section-title">Projects</div>
+        <div class="item">
+            <div class="item-title" id="projectName">ResumeCraft - Full Stack Resume Builder</div>
+            <div class="item-subtitle" id="projectTech">Technologies: Spring Boot, MySQL, JavaScript</div>
+            <div class="description" id="projectDesc">
+                A full-stack resume builder that allows users to create, edit and download professional resumes.
+            </div>
+            <div class="project-links">
+                <a id="projectGithub" href="#" target="_blank">GitHub</a>
+                <a id="projectLive" href="#" target="_blank">Live Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section">
+        <div class="section-title">Work Experience</div>
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <div class="item-title" id="expTitle">Software Developer Intern</div>
+                    <div class="item-subtitle" id="expCompany">ABC Technologies</div>
+                </div>
+                <div class="date">
+                    <span id="expStart">Jan 2026</span> - <span id="expEnd">Jun 2026</span>
+                </div>
+            </div>
+            <div class="description" id="expDesc">
+                Developed REST APIs using Spring Boot and worked with MySQL databases to build scalable applications.
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="js/data.js"></script>
+</body>
+</html>

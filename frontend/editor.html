@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/gemini-svg.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editor · ResumeCraft</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/editor.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-mark">RC</span>
+          <span class="sidebar-brand-name">ResumeCraft</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="sidebar-link">
+            <span data-icon="dashboard" data-size="18"></span>
+            <span class="sidebar-link-label">Dashboard</span>
+          </a>
+          <a href="my-resume.html" class="sidebar-link">
+            <span data-icon="fileText" data-size="18"></span>
+            <span class="sidebar-link-label">My Resume</span>
+          </a>
+          <a href="templates.html" class="sidebar-link">
+            <span data-icon="template" data-size="18"></span>
+            <span class="sidebar-link-label">Templates</span>
+          </a>
+          <a href="editor.html" class="sidebar-link active">
+            <span data-icon="edit" data-size="18"></span>
+            <span class="sidebar-link-label">Edit Information</span>
+          </a>
+          <a href="settings.html" class="sidebar-link">
+            <span data-icon="settings" data-size="18"></span>
+            <span class="sidebar-link-label">Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-avatar">Y</div>
+          <div class="sidebar-user">
+            <span class="sidebar-user-name">Your Name</span>
+            <span class="sidebar-user-role">Student</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-content">
+        <div class="resume-editor">
+          <div class="editor-topbar">
+            <a href="dashboard.html" class="back-link">
+              <span data-icon="arrowLeft" data-size="18"></span>
+              Back to Dashboard
+            </a>
+
+            <input
+              class="resume-title-input"
+              id="resume-title-input"
+              type="text"
+            />
+
+            <button class="btn-save" id="editor-save-btn" type="button">
+              <span data-icon="save" data-size="16"></span>
+              Save
+              <span
+                class="save-toast"
+                id="editor-save-toast"
+                style="display: none"
+              ></span>
+            </button>
+          </div>
+
+          <div class="editor-tabs" id="editor-tabs"></div>
+
+          <div class="editor-content">
+            <!-- Personal Info -->
+            <div class="editor-section active" id="section-personal">
+              <h3 class="section-title">Personal Information</h3>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Full Name</label>
+                  <input
+                    type="text"
+                    id="personal-fullName"
+                    placeholder="e.g. Priya Sharma"
+                  />
+                </div>
+                <div class="form-field">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    id="personal-email"
+                    placeholder="e.g. priya@email.com"
+                  />
+                </div>
+                <div class="form-field">
+                  <label>Phone</label>
+                  <input
+                    type="tel"
+                    id="personal-phone"
+                    placeholder="e.g. +91 98765 43210"
+                  />
+                </div>
+                <div class="form-field">
+                  <label>Location</label>
+                  <input
+                    type="text"
+                    id="personal-location"
+                    placeholder="e.g. Mumbai, India"
+                  />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label>Professional Summary</label>
+                <textarea
+                  rows="4"
+                  id="personal-summary"
+                  placeholder="A short 2-3 line summary about yourself..."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="editor-section" id="section-experience">
+              <div class="section-header">
+                <h3 class="section-title">Experience</h3>
+                <button
+                  type="button"
+                  class="btn-add"
+                  id="add-experience-btn"
+                >
+                  <span data-icon="plus" data-size="16"></span>
+                  Add Experience
+                </button>
+              </div>
+
+              <p class="empty-hint" id="experience-empty">
+                No experience added yet. Click "Add Experience" to get
+                started.
+              </p>
+
+              <div id="experience-list"></div>
+            </div>
+
+            <!-- Education -->
+            <div class="editor-section" id="section-education">
+              <div class="section-header">
+                <h3 class="section-title">Education</h3>
+                <button type="button" class="btn-add" id="add-education-btn">
+                  <span data-icon="plus" data-size="16"></span>
+                  Add Education
+                </button>
+              </div>
+
+              <p class="empty-hint" id="education-empty">
+                No education added yet. Click "Add Education" to get
+                started.
+              </p>
+
+              <div id="education-list"></div>
+            </div>
+
+            <!-- Skills -->
+            <div class="editor-section" id="section-skills">
+              <h3 class="section-title">Skills</h3>
+
+              <div class="skill-input-row">
+                <input
+                  type="text"
+                  id="skill-input"
+                  placeholder="e.g. React, Java, SQL"
+                />
+                <button type="button" class="btn-add" id="add-skill-btn">
+                  Add Skill
+                </button>
+              </div>
+
+              <p class="empty-hint" id="skills-empty">
+                No skills added yet. Add skills one by one.
+              </p>
+
+              <div class="skill-tags" id="skill-tags"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/editor.js"></script>
+  </body>
+</html>

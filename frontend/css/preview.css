@@ -1,0 +1,559 @@
+/* =========================================================
+   Resume Preview page
+   Dark UI shell; white printable resume document.
+   Supports multiple templates: templateTest (ATS Classic),
+   template2 (Modern Indigo), Modern Purple, Corporate, Minimal.
+   ========================================================= */
+
+.resume-preview-page {
+  padding: 24px 32px;
+  min-height: 100%;
+}
+
+.preview-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.preview-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Template Selector in Topbar */
+.template-selector-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface, #1e1e2d);
+  border: 1px solid var(--color-border, #2e2e42);
+  padding: 6px 14px;
+  border-radius: var(--radius-md, 8px);
+  color: var(--color-text, #f3f4f6);
+  font-size: 13px;
+}
+
+.template-select-dropdown {
+  background: transparent;
+  border: none;
+  color: #a78bfa;
+  font-weight: 600;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.template-select-dropdown option {
+  background: #181824;
+  color: #f3f4f6;
+}
+
+.btn-secondary-link,
+.btn-edit-link,
+.btn-primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md, 8px);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-secondary-link {
+  background: var(--color-surface, #1e1e2d);
+  border-color: var(--color-border, #2e2e42);
+  color: var(--color-text, #f3f4f6);
+}
+
+.btn-secondary-link:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+}
+
+.btn-edit-link {
+  background: #2e1065;
+  border-color: #581c87;
+  color: #c084fc;
+}
+
+.btn-edit-link:hover {
+  background: #3b0764;
+  border-color: #7e22ce;
+}
+
+.btn-primary-action {
+  background: #7c3aed;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary-action:hover {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+/* Loading State */
+.resume-loading-state {
+  text-align: center;
+  padding: 40px;
+  color: #a78bfa;
+  font-size: 14px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(139, 92, 246, 0.2);
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Outer Resume Container --- */
+.resume-document {
+  max-width: 820px;
+  margin: 0 auto 40px;
+  background: #ffffff;
+  color: #1e1b2e;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* =========================================================
+   TEMPLATE 1: templateTest.html (ATS Classic)
+   ========================================================= */
+.template-test-view {
+  width: 100%;
+  padding: 40px 48px;
+  background: #ffffff;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #222222;
+  box-sizing: border-box;
+}
+
+.template-test-view .header {
+  border-bottom: 2px solid #222222;
+  padding-bottom: 18px;
+  text-align: left;
+}
+
+.template-test-view .name {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #111111;
+}
+
+.template-test-view .job-title {
+  font-size: 16px;
+  margin-top: 6px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.template-test-view .contact {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.template-test-view .contact a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.template-test-view .section {
+  margin-top: 22px;
+}
+
+.template-test-view .section-title {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.template-test-view .summary {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #374151;
+}
+
+.template-test-view .item {
+  margin-bottom: 16px;
+}
+
+.template-test-view .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.template-test-view .item-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #111827;
+}
+
+.template-test-view .item-subtitle {
+  font-size: 13px;
+  color: #4b5563;
+  margin-top: 2px;
+}
+
+.template-test-view .date {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.template-test-view .description {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 6px;
+  color: #374151;
+}
+
+.template-test-view .skills {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.template-test-view .skill-tag {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  background: #f3f4f6;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  font-size: 12px;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+.template-test-view .project-links {
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.template-test-view .project-links a {
+  color: #2563eb;
+  margin-right: 14px;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   TEMPLATE 2: template2.html (Modern Indigo)
+   ========================================================= */
+.template2-view {
+  width: 100%;
+  padding: 44px 48px;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1f2937;
+  box-sizing: border-box;
+}
+
+.template2-view .resume-header {
+  border-bottom: 2px solid #6366f1;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.template2-view .resume-header h1 {
+  font-size: 26px;
+  color: #111827;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.template2-view .resume-header h2 {
+  font-size: 16px;
+  color: #6366f1;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.template2-view .contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.template2-view .contact-info a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.template2-view .contact-info a:hover {
+  text-decoration: underline;
+}
+
+.template2-view .resume-section {
+  margin-bottom: 22px;
+}
+
+.template2-view .resume-section h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6366f1;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.template2-view .item-block {
+  margin-bottom: 14px;
+}
+
+.template2-view .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3px;
+}
+
+.template2-view .item-title {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.template2-view .item-subtitle {
+  font-weight: 500;
+  color: #4b5563;
+  font-size: 13px;
+}
+
+.template2-view .item-date {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.template2-view p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0;
+}
+
+.template2-view .skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.template2-view .skill-badge {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+/* =========================================================
+   Standard Themes (Modern, Professional, Minimal)
+   ========================================================= */
+.resume-doc-inner {
+  padding: 40px;
+}
+
+.resume-doc-inner .resume-header {
+  text-align: center;
+  border-bottom: 2px solid #6366f1;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.resume-doc-inner .resume-header h1 {
+  margin: 0 0 4px 0;
+  font-size: 26px;
+  color: #1e1b2e;
+}
+
+.resume-doc-inner .contact-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.resume-doc-inner .contact-row a {
+  color: #6366f1;
+  text-decoration: underline;
+}
+
+.resume-doc-inner .resume-block {
+  margin-bottom: 20px;
+}
+
+.resume-doc-inner .resume-block:last-child {
+  margin-bottom: 0;
+}
+
+.resume-doc-inner .resume-block h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6366f1;
+  margin: 0 0 10px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+
+.resume-doc-inner .resume-entry {
+  margin-bottom: 12px;
+}
+
+.resume-doc-inner .resume-entry-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  color: #1e1b2e;
+}
+
+.resume-doc-inner .resume-entry-header span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.resume-doc-inner .resume-entry-sub {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 3px;
+}
+
+.resume-doc-inner .resume-block p {
+  margin: 0;
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.55;
+}
+
+.resume-doc-inner .resume-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resume-doc-inner .resume-skill-chip {
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Professional Serif Variation */
+.template-professional {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.template-professional .resume-header {
+  border-bottom-color: #1e1b2e;
+}
+
+.template-professional h2 {
+  color: #1e1b2e !important;
+}
+
+/* Minimal Monochrome Variation */
+.template-minimal .resume-header {
+  border-bottom: 1px solid #d1d5db;
+}
+
+.template-minimal h2 {
+  color: #374151 !important;
+  border-bottom: none !important;
+}
+
+/* =========================================================
+   Print Styles: pristine A4 resume output
+   ========================================================= */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .sidebar,
+  .preview-topbar,
+  .resume-preview-page .preview-topbar,
+  #resume-loading {
+    display: none !important;
+  }
+
+  .app-shell,
+  .app-content,
+  .resume-preview-page {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+  }
+
+  .resume-document {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .template-test-view,
+  .template2-view,
+  .resume-doc-inner {
+    padding: 10px 20px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .resume-preview-page {
+    padding: 16px 12px;
+  }
+
+  .template-test-view,
+  .template2-view,
+  .resume-doc-inner {
+    padding: 24px 18px;
+  }
+}

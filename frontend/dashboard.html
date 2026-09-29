@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/gemini-svg.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard · ResumeCraft</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-mark">RC</span>
+          <span class="sidebar-brand-name">ResumeCraft</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="sidebar-link active">
+            <span data-icon="dashboard" data-size="18"></span>
+            <span class="sidebar-link-label">Dashboard</span>
+          </a>
+          <a href="my-resume.html" class="sidebar-link">
+            <span data-icon="fileText" data-size="18"></span>
+            <span class="sidebar-link-label">My Resume</span>
+          </a>
+          <a href="templates.html" class="sidebar-link">
+            <span data-icon="template" data-size="18"></span>
+            <span class="sidebar-link-label">Templates</span>
+          </a>
+          <a href="enterInfo.html" class="sidebar-link">
+            <span data-icon="edit" data-size="18"></span>
+            <span class="sidebar-link-label">Edit Information</span>
+          </a>
+          <a href="settings.html" class="sidebar-link">
+            <span data-icon="settings" data-size="18"></span>
+            <span class="sidebar-link-label">Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-avatar">Y</div>
+          <div class="sidebar-user">
+            <span class="sidebar-user-name">Your Name</span>
+            <span class="sidebar-user-role">Student</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-content">
+        <div class="dashboard">
+          <div class="dashboard-header">
+            <div>
+              <h1>Build Your Professional Resume</h1>
+              <p class="dashboard-subtitle">
+                Craft, optimize, and organize your resume for the roles
+                you're targeting.
+              </p>
+            </div>
+            <a href="enterInfo.html" class="btn btn-primary">Create Resume</a>
+          </div>
+
+          <div class="dashboard-stats-row">
+            <div class="stat-card stat-card-purple">
+              <span class="stat-card-label">Profile Completeness</span>
+              <span class="stat-card-value" id="stat-completion-value"
+                >—</span
+              >
+              <span class="stat-card-sublabel"
+                >of primary sections populated</span
+              >
+            </div>
+          </div>
+
+          <div class="dashboard-section">
+            <h2 class="section-heading">Active Resume</h2>
+            <div id="active-resume-card"></div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="panel-card dashboard-section">
+              <div class="panel-card-header">
+                <div>
+                  <h2>Recent Resumes</h2>
+                  <p>Your recently updated resumes</p>
+                </div>
+                <span class="panel-card-badge" id="recent-resumes-badge"
+                  >0 total</span
+                >
+              </div>
+              <div class="recent-resumes-list" id="recent-resumes-list"></div>
+            </div>
+
+            <div class="panel-card dashboard-section">
+              <div class="panel-card-header">
+                <div>
+                  <h2>Recommended Templates</h2>
+                  <p>Popular layouts to get you started</p>
+                </div>
+              </div>
+              <div
+                class="recommended-templates-list"
+                id="recommended-templates-list"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

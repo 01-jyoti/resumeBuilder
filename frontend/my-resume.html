@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/gemini-svg.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Resume · ResumeCraft</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/preview.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-mark">RC</span>
+          <span class="sidebar-brand-name">ResumeCraft</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="sidebar-link">
+            <span data-icon="dashboard" data-size="18"></span>
+            <span class="sidebar-link-label">Dashboard</span>
+          </a>
+          <a href="my-resume.html" class="sidebar-link active">
+            <span data-icon="fileText" data-size="18"></span>
+            <span class="sidebar-link-label">My Resume</span>
+          </a>
+          <a href="templates.html" class="sidebar-link">
+            <span data-icon="template" data-size="18"></span>
+            <span class="sidebar-link-label">Templates</span>
+          </a>
+          <a href="enterInfo.html" class="sidebar-link">
+            <span data-icon="edit" data-size="18"></span>
+            <span class="sidebar-link-label">Edit Information</span>
+          </a>
+          <a href="settings.html" class="sidebar-link">
+            <span data-icon="settings" data-size="18"></span>
+            <span class="sidebar-link-label">Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-avatar">Y</div>
+          <div class="sidebar-user">
+            <span class="sidebar-user-name">Your Name</span>
+            <span class="sidebar-user-role">Student</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-content">
+        <div class="resume-preview-page">
+          <div class="preview-topbar">
+            <a href="dashboard.html" class="back-link">
+              <span data-icon="arrowLeft" data-size="18"></span>
+              Back to Dashboard
+            </a>
+
+            <div class="preview-actions">
+              <div class="template-selector-box">
+                <span data-icon="palette" data-size="16"></span>
+                <select id="quick-template-select" class="template-select-dropdown" title="Select Template">
+                  <option value="templateTest">ATS Classic (templateTest)</option>
+                  <option value="template2">Modern Indigo (template2)</option>
+                  <option value="modern">Modern Purple</option>
+                  <option value="professional">Corporate Executive</option>
+                  <option value="minimal">Minimal Monochrome</option>
+                </select>
+              </div>
+
+              <a href="templates.html" class="btn-secondary-link" title="Browse full template gallery">
+                <span data-icon="template" data-size="16"></span>
+                <span>Gallery</span>
+              </a>
+
+              <a href="enterInfo.html" class="btn-edit-link" title="Edit your resume data">
+                <span data-icon="pencil" data-size="16"></span>
+                Edit Info
+              </a>
+
+              <button type="button" class="btn-primary-action" id="btn-print" onclick="window.print()" title="Print or save as PDF">
+                <span data-icon="printer" data-size="16"></span>
+                Download / Print PDF
+              </button>
+            </div>
+          </div>
+
+          <div id="resume-loading" class="resume-loading-state" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading your resume from database...</p>
+          </div>
+
+          <div id="resume-container">
+            <div class="resume-document" id="resume-document">
+              <!-- Dynamically populated from database and template by preview.js -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/preview.js"></script>
+  </body>
+</html>
