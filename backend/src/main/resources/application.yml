@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/resume_builder?useSSL=false&serverTimezone=UTC
     username: root
-    password: "pR@N@Y#2007"
+    password: "YourPassword"
   jpa:
     hibernate:
       ddl-auto: update
